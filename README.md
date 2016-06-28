@@ -17,7 +17,6 @@ $device| foreach {
         }
         
 Whatever is held in the variable $device, each one will 'pinged' pass through a 'if' statement then go to either offline or online and get stored into the $hash array variable.
-DISCLAIMER: I should apologies to Don here for killing the puppies with write-host. I wanted to just push out some coloured output to the host only!
 
 Before I go any further, let me briefly explain how I am 'pinging' the devices. I am using the cmdlet 'Test-Connection'. The synopsis on 'get-help' for test-connection states, 'Sends ICMP echo request packets ("pings") to one or more computers.' A nice feature of this cmdlet is '-quiet' syntax. This is cool as it gives a Boolean result (True or False) of the 'ping' status. By adding a '-count' as well i can limit the number of times I request a connection check. 
 Now I can pass as many devices through the pipeline to my function and get an online or offline message pretty quickly.
@@ -40,8 +39,9 @@ pc2               Offline
 pc3               Offline
 
 Again this script has great flexibility in how you pass the device objects.
+
 Say you have a list of PC's in a text for CSV file, use Get-content and pipe it to Get-PingStatus:
 get-content pcs.csv | Get-PingStatus
-I hope you've enjoyed my first blog and i welcome any comments. I've posted the script on GitHub for download.
+
 
 
